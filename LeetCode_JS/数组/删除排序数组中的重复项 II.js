@@ -7,4 +7,23 @@
  */
 
 let nums = [1, 1, 1, 2, 2, 3]; // 输出：5, nums = [1,1,2,2,3]
-function removeDuplicates(nums) {}
+/**
+ * 增序排列数组 nums
+ * 原地排序
+ * @param {*} nums
+ */
+let removeDuplicates = function (nums) {
+  //慢指针
+  let k = 0;
+  for (let i = 0; i < nums.length; i++) {
+    // 一开始k小于2个交互位置并且k自增
+    //重点后面这句分析 k如果是3 前面应该是[1,1,2]
+    //如果2与 第一个下标1相同说明 有三个数相同了不符合 [1,1,1]
+    if (k < 2 || nums[i] !== nums[k - 2]) {
+      nums[k++] = nums[i];
+    }
+  }
+  return k;
+};
+
+console.log('removeDuplicates', removeDuplicates(nums));
