@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>使用text-align-last对齐两端文本</title>
+    <style>
+      li {
+        padding: 0 20px;
+        width: 100px;
+        height: 40px;
+        background-color: #f66;
+        line-height: 40px;
+        color: #fff;
+        /* 文字二端对齐 IOS上不支持text-align-last这个属性，因此这个方式并不稳妥。 */
+        text-align-last: justify;
+      }
+      li:nth-child(n + 1) {
+        margin-top: 8px;
+      }
+      div {
+        width: 500px;
+        border: 1px solid red;
+        text-align: justify;
+      }
+      div i {
+        display: inline-block;
+        /*padding-left: 100%;*/
+        width: 100%;
+      }
+      textarea {
+        text-align-last: justify;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <ul class="justify-text">
+        <li>账号</li>
+        <li>密码</li>
+        <li>电子邮件</li>
+        <li>通讯地址</li>
+      </ul>
+      <br />
+      <div>这世间唯有梦想和好姑娘不f！<i></i></div>
+      <br />
+      <textarea name="" id="list" cols="30" rows="10">
+          辣豆腐辣豆腐啦啦啦地方啦的法拉利对伐啦地方撒大幅度发顺丰
+      </textarea>
+    </section>
+  </body>
+</html>

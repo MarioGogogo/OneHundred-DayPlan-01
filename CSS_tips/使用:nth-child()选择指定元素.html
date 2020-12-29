@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>使用:nth-child()选择指定元素</title>
+    <style>
+      .list {
+        width: 300px;
+      }
+      li {
+        padding: 0 20px;
+        height: 40px;
+        line-height: 40px;
+        color: #fff;
+      }
+      li:nth-child(odd) {
+        background-color: #f66;
+      }
+      li:nth-child(even) {
+        background-color: #66f;
+      }
+      /* 截取【6...10】之间的列表 */
+      li:nth-child(n + 6):nth-child(-n + 10) {
+        background-color: #3c9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bruce flex-ct-x" data-title="使用:nth-child()选择指定元素">
+      <ul class="list">
+        <li>10001</li>
+        <li>10002</li>
+        <li>10003</li>
+        <li>10004</li>
+        <li>10005</li>
+        <li>10006</li>
+        <li>10007</li>
+        <li>10008</li>
+        <li>10009</li>
+        <li>10010</li>
+        <li>10011</li>
+        <li>10012</li>
+      </ul>
+    </div>
+  </body>
+</html>
