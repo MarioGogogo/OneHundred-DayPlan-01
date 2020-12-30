@@ -57,7 +57,7 @@ let bt_minSubArrayLen = function (s, nums) {
       l++;
     }
     if (sum >= s) {
-      //求最小长度 缓存
+      // 缓存最小长度
       res = Math.min(res, r - l + 1);
     }
   }
