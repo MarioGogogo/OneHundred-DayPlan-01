@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>使用:not()去除无用属性</title>
+    <style>
+      li {
+        height: 40px;
+        line-height: 40px;
+      }
+      span {
+        display: inline-block;
+        color: #66f;
+      }
+      /* 排除最后一个子类加逗号 */
+      .first-line span:not(:last-child)::after {
+        content: ',';
+      }
+      .second-line span:not(:nth-child(-n + 1)) {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <ul class="cleared-attr">
+        <li class="first-line">
+          <span>A</span>
+          <span>B</span>
+          <span>C</span>
+          <span>D</span>
+          <span>E</span>
+        </li>
+        <li class="second-line">
+          <span>A</span>
+          <span>B</span>
+          <span>C</span>
+          <span>D</span>
+          <span>E</span>
+        </li>
+      </ul>
+    </section>
+  </body>
+</html>
