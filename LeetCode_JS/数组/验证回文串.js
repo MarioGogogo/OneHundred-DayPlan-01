@@ -35,6 +35,9 @@ console.log(
 );
 /**
  * 字符串翻转
+ * 1、去重空格 特殊符号
+ * 2.字符串反转  拼接
+ * 3.如果相等 返回true
  * @param {*} s
  */
 let bt_isPalindrome = function (s) {
