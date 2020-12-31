@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>使用transform翻转内容</title>
+    <style>
+      li {
+        position: relative;
+        width: 121px;
+        height: 51px;
+        line-height: 51px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 30px;
+        color: #f66;
+        list-style: none;
+        margin-top: 10px;
+      }
+      li::before,
+      li::after {
+        position: absolute;
+        background-color: #f66;
+        content: '';
+      }
+      /* 水平翻转 */
+      .x-axis {
+        transform: scale(1, -1);
+      }
+      /* 垂直翻转 */
+      .y-axis {
+        transform: scale(-1, 1);
+      }
+      /* 倒序翻转 */
+      .reverse {
+        transform: scale(-1, -1);
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <ul class="flip-content">
+        <li>正常文本</li>
+        <li class="x-axis">水平翻转</li>
+        <li class="y-axis">垂直翻转</li>
+        <li class="reverse">倒序翻转</li>
+      </ul>
+    </section>
+  </body>
+</html>
