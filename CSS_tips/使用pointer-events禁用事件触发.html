@@ -1,0 +1,31 @@
+<!--
+ * @Descripttion: 
+ * @Author: Mario
+ * @Date: 2021-01-01 22:51:50
+ * @LastEditors: Maroi
+ * @LastEditTime: 2021-01-01 22:54:06
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>使用pointer-events禁用事件触发</title>
+    <style>
+      .disabled-trigger {
+        padding: 0 20px;
+        border-radius: 10px;
+        height: 40px;
+        background-color: #66f;
+        pointer-events: none; /*禁用默认事件*/
+        line-height: 40px;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <a class="disabled-trigger" href="https://www.baidu.com">点我</a>
+    </section>
+  </body>
+</html>

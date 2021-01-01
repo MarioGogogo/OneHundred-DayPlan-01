@@ -1,0 +1,72 @@
+<!--
+ * @Descripttion: 
+ * @Author: Mario
+ * @Date: 2021-01-01 22:54:36
+ * @LastEditors: Maroi
+ * @LastEditTime: 2021-01-01 23:05:07
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>使用+或~美化选项框</title>
+    <style>
+      ul {
+        display: flex;
+        border: 1px solid red;
+      }
+      li {
+        list-style: none;
+        display: flex;
+        align-items: center;
+      }
+      li:not(:first-child) {
+        margin-left: 20px;
+      }
+      li input:checked + label {
+        background-color: #7066ff;
+      }
+      label {
+        margin-right: 5px;
+        padding: 2px;
+        border: 1px solid #7066ff;
+        border-radius: 100%;
+        width: 18px;
+        height: 18px;
+        background-clip: content-box;
+        cursor: pointer;
+        transition: all 300ms;
+      }
+      label:hover {
+        border-color: #7066ff;
+        background-color: #7066ff;
+        box-shadow: 0 0 7px #7066ff;
+      }
+      span {
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <ul>
+        <li>
+          <input id="fed-engineer" type="radio" name="radioName" hidden />
+          <label for="fed-engineer"></label>
+          <span>前端工程师</span>
+        </li>
+        <li>
+          <input id="bed-engineer" type="radio" name="radioName" hidden />
+          <label for="bed-engineer"></label>
+          <span>后端工程师</span>
+        </li>
+        <li>
+          <input id="fsd-engineer" type="radio" name="radioName" hidden />
+          <label for="fsd-engineer"></label>
+          <span>全栈工程师</span>
+        </li>
+      </ul>
+    </section>
+  </body>
+</html>

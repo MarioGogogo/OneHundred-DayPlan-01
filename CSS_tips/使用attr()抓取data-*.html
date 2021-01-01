@@ -1,0 +1,59 @@
+<!--
+ * @Descripttion: 
+ * @Author: Mario
+ * @Date: 2021-01-01 22:17:05
+ * @LastEditors: Maroi
+ * @LastEditTime: 2021-01-01 22:49:59
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>使用attr()抓取data-*</title>
+    <style>
+      .hover-tips {
+        position: relative;
+        padding: 0 20px;
+        border-radius: 10px;
+        height: 40px;
+        background-color: #66f;
+        line-height: 40px;
+        color: #fff;
+        margin-top: 10px;
+      }
+      .btn-1::after {
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-radius: 5px;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(#000, 0.5);
+        opacity: 0;
+        text-align: center;
+        font-size: 12px;
+        content: attr(data-msg);
+        transition: all 300ms;
+      }
+      .btn-1:hover::after {
+        left: calc(100% + 20px);
+        opacity: 1;
+      }
+      .btn-2:empty::after {
+        content: attr(href);
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <a
+        class="hover-tips btn-1"
+        href="https://www.baidu.com"
+        data-msg="Hello World"
+        >提示框</a
+      >
+      <a class="hover-tips btn-2" href="https://www.baidu.com"></a>
+    </section>
+  </body>
+</html>
