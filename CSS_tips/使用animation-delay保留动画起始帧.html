@@ -1,0 +1,55 @@
+<!--
+ * @Descripttion: 
+ * @Author: Mario
+ * @Date: 2021-01-02 22:46:39
+ * @LastEditors: Maroi
+ * @LastEditTime: 2021-01-02 22:55:35
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>使用animation-delay保留动画起始帧</title>
+    <style>
+      .initial-keyframe {
+        position: relative;
+        margin-top: 400px;
+        left: 50%;
+      }
+      .initial-keyframe li {
+        position: absolute;
+        border-radius: 100%;
+        width: 100px;
+        height: 100px;
+        background-color: #3c9;
+        /* 关键二步 */
+        transform: rotate(0) translate(-80px, 0);
+        animation: rotate 3s linear infinite;
+        list-style: none;
+      }
+      li:nth-child(2) {
+        animation-delay: -1s;
+        background-color: #f66;
+      }
+      li:nth-child(3) {
+        animation-delay: -2s;
+        background-color: #66f;
+      }
+      @keyframes rotate {
+        to {
+          transform: rotate(1turn) translate(-80px, 0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <ul class="initial-keyframe">
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </section>
+  </body>
+</html>
