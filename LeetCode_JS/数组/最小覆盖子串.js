@@ -13,31 +13,47 @@
  * @param {*} t
  */
 
-let s = 'ADOBECODEBANC',
-  t = 'ABC';
+let s = 'aa',
+  t = 'a';
 var minWindow = function (s, t) {
-  let count = {};
-  [...t].forEach((el) => (count[el] ? count[el]++ : (count[el] = 1)));
-  console.log('arr :>> ', count);
+  let hash = {};
+  [...t].forEach((el) => (hash[el] ? hash[el]++ : (hash[el] = 1)));
+  console.log('arr :>> ', hash);
+
   let c = 0,
     res,
-    minL = s.lenth;
-  let l = 0;
-  r = 0;
-  for (let l = 0, r = 0; r < s.length; ++r) {
-    count[s[r]]--;
-    if (count[s[r]] >= 0) ++c;
-    while (c == t.length) {
-      if (r - l + 1 <= minL) {
-        minL = r - l + 1;
-        res = s.substr(l, r - l + 1);
-      }
-      count[s[l]]++;
-      if (count[s[l]] > 0) --c;
-      ++l;
+    minL = Infinity,
+    start = 0,
+    count = t.length,
+    l = 0,
+    r = 0;
+
+  while (r < s.length) {
+    if (hash[s[r]] > 0) {
+      hash[s[r]]--;
     }
+    if (hash[s[r]] === 0) {
+      count--;
+    }
+
+    //说明我找齐了几个字母 1.计算长度  2.试试收缩窗口
+    while (count === 0) {
+      if (r - l + 1 < minL) {
+        minL = r - l + 1;
+        start = l;
+      }
+      //我缩小窗口丢弃了一个元素 但这个元素存在 则要+1
+      if (hash[s[l]] >= 0) {
+        hash[s[l]]++;
+      }
+      if (hash[s[l]] > 0) {
+        count++;
+      }
+      l++;
+    }
+    r++;
   }
-  return res;
+  return minL === Infinity ? '' : s.substring(start, start + minL);
 };
 
 console.log(
