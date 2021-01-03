@@ -19,50 +19,6 @@
 
 let s = 'ADOBECODEBANC',
   t = 'ABC';
-var minWindow1 = function (s, t) {
-  let hash = {};
-  [...t].forEach((el) => (hash[el] ? hash[el]++ : (hash[el] = 1)));
-  console.log('arr :>> ', hash);
-
-  let minL = Infinity,
-    start = 0,
-    count = t.length, //类型数量
-    l = 0,
-    r = 0,
-    res = '';
-
-  while (r < s.length) {
-    //判断如果hash对象中有这个字符就-1：表示找到了一个字符
-    if (hash[s[r]] > 0) {
-      hash[s[r]]--;
-    }
-    //如果某一个字符找到了 类型数量也要相应 -1 表示不需要它了
-    if (hash[s[r]] === 0) {
-      count--;
-    }
-
-    //说明我找齐了几个字母 开始移动左指针 1.计算长度  2.试试收缩窗口
-    while (count === 0) {
-      console.log('s.substring :>> ', s.substring(l, r + 1));
-      const result = s.substring(l, r + 1);
-      //最小长度
-      if (!res || result.length < res.length) {
-        res = result;
-      }
-      if (hash[s[l]] === 0) {
-        //移动左指针
-        hash[s[l]]++;
-      }
-      //如果移动到的字符 等于1 那就表示需要这个字符  类型数量相应+1
-      if (hash[s[l]] === 1) {
-        count++;
-      }
-      l++;
-    }
-    r++;
-  }
-  return res;
-};
 
 var minWindow = function (s, t) {
   //设置左右指针
