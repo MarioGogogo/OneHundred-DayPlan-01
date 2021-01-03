@@ -1,0 +1,118 @@
+<!--
+ * @Descripttion: 这个布局属性还是有问题
+ * @Author: Mario
+ * @Date: 2021-01-03 16:30:12
+ * @LastEditors: Maroi
+ * @LastEditTime: 2021-01-03 21:25:10
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>使用resize拉伸分栏</title>
+    <style>
+      .stretching-column {
+        overflow: hidden;
+        border: 1px solid gray;
+        width: 600px;
+        height: 300px;
+        line-height: 20px;
+        font-size: 16px;
+        color: orange;
+      }
+
+      .left {
+        overflow: hidden;
+        float: left;
+        position: relative;
+        height: 100%;
+      }
+
+      .right {
+        overflow: hidden;
+        padding: 10px;
+        height: 100%;
+        background-color: #f0f0f0;
+        word-break: break-all;
+      }
+
+      .resize-bar {
+        overflow: scroll;
+        width: 250px;
+        height: 100%;
+        opacity: 0;
+        resize: horizontal;
+      }
+
+      .resize-bar::-webkit-scrollbar {
+        width: 250px;
+        height: 100%;
+      }
+
+      .resize-bar:hover,
+      :active .resize-line {
+        border-left: 1px dashed gray;
+      }
+
+      .resize-line {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        border-left: 1px solid #ccc;
+        border-right: 2px solid #f0f0f0;
+        pointer-events: none;
+      }
+
+      .resize-text {
+        overflow-x: hidden;
+        position: absolute;
+        left: 0;
+        right: 5px;
+        top: 0;
+        bottom: 0;
+        padding: 10px;
+        word-break: break-all;
+      }
+      .my-textarea {
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+        outline: none;
+      }
+    </style>
+    <script>
+      let leftEle = document.querySelector('.resize-text');
+      let rightEle = document.querySelector('.my-textarea');
+      rightEle.oninput = function () {
+        leftEle.innerHTML = rightEle.value;
+      };
+    </script>
+  </head>
+  <body>
+    <div class="stretching-column">
+      <div class="left">
+        <div class="resize-bar"></div>
+        <div class="resize-line"></div>
+        <div class="resize-text">
+          resize的鼠标拉动分栏效果：主要通过resize设置横向自由拉伸来调整目标元素的宽度
+          resize
+          属性规定是否可由用户调整元素的尺寸。如果希望此属性生效，需要设置元素的
+          overflow 属性，值可以是 auto、hidden 或 scroll。/n 在远方的时候
+          又想你到泪流 这矫情的措辞结构 经历过的人会懂 那些不堪言的疼痛
+          也就是我自作自受 你没有装聋 你真没感动 一个人的时候 偷偷看你的微博
+          你转播的歌好耳熟
+        </div>
+      </div>
+      <div class="right">
+        <textarea
+          class="my-textarea"
+          autofocus="autofocus"
+          placeholder="说说心里话..."
+        >
+        </textarea>
+      </div>
+    </div>
+  </body>
+</html>

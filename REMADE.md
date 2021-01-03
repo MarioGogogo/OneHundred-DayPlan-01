@@ -1,3 +1,11 @@
+<!--
+ * @Descripttion:
+ * @Author: Mario
+ * @Date: 2020-12-29 20:58:00
+ * @LastEditors: Maroi
+ * @LastEditTime: 2021-01-03 19:45:32
+-->
+
 # 100 日计划
 
 > 练习！ 练习！ 练习！
@@ -13,3 +21,9 @@
 排序
 查找
 数据结构 栈 队列 堆
+
+## hash 表的缺点
+
+> 没有数据顺序性
+
+![qsC5nV2021010319](http://typora.pp.52react.cn/fuckb/qsC5nV2021010319.png)
