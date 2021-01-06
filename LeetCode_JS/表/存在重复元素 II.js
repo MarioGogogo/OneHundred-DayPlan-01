@@ -34,3 +34,17 @@ var containsNearbyDuplicate = function (nums, k) {
   }
   return false;
 };
+//第三种解法
+var containsNearbyDuplicate = function (nums, k) {
+  const set = new Set();
+  for (let i = 0; i < nums.length; i++) {
+    if (set.has(nums[i])) return true;
+    // 添加进set表中
+    set.add(nums[i]);
+    //如果超过限制，移除set中第一位
+    if (set.size > k) {
+      set.delete(nums[i - k]);
+    }
+  }
+  return false;
+};
