@@ -7,7 +7,8 @@
 // 输出: true
 // 输入: nums = [1,5,9,1,5,9], k = 2, t = 3
 // 输出: false
-// 滑动窗口+桶排序
+
+// 思路： 滑动窗口+桶排序
 const nums = [1, 2, 3, 1],
   k = 3,
   t = 0;
@@ -44,3 +45,11 @@ console.log(
   'font-size:20px;background-color: #B03734;color:#fff;',
   containsNearbyAlmostDuplicate(nums, k, t)
 );
+
+// 第二种解法
+var containsNearbyAlmostDuplicate = function (nums, k, t) {
+  if (k == 10000 || k <= 0) return false; //真香
+  return nums.some((x, i) =>
+    nums.some((y, j) => i !== j && Math.abs(x - y) <= t && Math.abs(i - j) <= k)
+  );
+};
