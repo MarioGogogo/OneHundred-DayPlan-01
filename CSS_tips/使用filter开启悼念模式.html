@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>使用filter开启悼念模式</title>
+    <style>
+      body {
+        width: 100%;
+        height: 100%;
+        filter: grayscale(100%);
+      }
+      p:first-child {
+        color: red;
+      }
+      p:last-child {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <p>我是红色</p>
+      <p>我是绿色</p>
+      <img
+        class="mourning-mode"
+        src="https://static.yangzw.vip/codepen/car.jpg"
+      />
+    </section>
+  </body>
+</html>
