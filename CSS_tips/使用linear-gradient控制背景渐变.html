@@ -1,0 +1,47 @@
+<!--
+ * @Descripttion: 
+ * @Author: Mario
+ * @Date: 2021-01-08 22:48:53
+ * @LastEditors: Maroi
+ * @LastEditTime: 2021-01-08 22:53:11
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>使用linear-gradient控制背景渐变</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .gradient-bg {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        font-weight: bold;
+        font-size: 100px;
+        color: #fff;
+        background: linear-gradient(135deg, #f66, #f90, #3c9, #09f, #66f) left
+          center/400% 400%;
+        animation: move 10s infinite;
+      }
+      @keyframes move {
+        0%,
+        100% {
+          background-position-x: left;
+        }
+        50% {
+          background-position-x: right;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="gradient-bg">iCSS</div>
+    </section>
+  </body>
+</html>

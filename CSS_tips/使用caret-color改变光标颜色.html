@@ -1,0 +1,48 @@
+<!--
+ * @Descripttion: 
+ * @Author: Mario
+ * @Date: 2021-01-08 23:00:58
+ * @LastEditors: Maroi
+ * @LastEditTime: 2021-01-08 23:04:49
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>使用caret-color改变光标颜色</title>
+    <style>
+      input {
+        display: block;
+        padding: 0 20px;
+        border: 1px solid #ccc;
+        width: 20%;
+        height: 40px;
+        outline: none;
+        caret-color: #09f;
+        transition: all 300ms;
+      }
+      /* input 元素中输入的值为合法的 */
+      input:valid {
+        border-color: #3c9;
+      }
+      /* input 元素中输入的值为不合法的 */
+      input:invalid {
+        border-color: #f66;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div>
+        <label>名字</label>
+        <input
+          type="text"
+          placeholder="请输入你的名字(1到10个中文)"
+          pattern="^[\u4e00-\u9fa5]{1,10}$"
+          required
+        />
+      </div>
+    </section>
+  </body>
+</html>

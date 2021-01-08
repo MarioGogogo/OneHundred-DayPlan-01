@@ -1,0 +1,42 @@
+<!--
+ * @Descripttion: 
+ * @Author: Mario
+ * @Date: 2021-01-08 22:53:48
+ * @LastEditors: Maroi
+ * @LastEditTime: 2021-01-08 22:58:58
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>使用linear-gradient控制文本渐变</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .gradient-text {
+        color: transparent;
+        line-height: 60px;
+        font-size: 60px;
+        background-image: linear-gradient(90deg, #f66, #66f);
+        background-clip: text;
+        animation: move 5s linear infinite;
+      }
+      @keyframes move {
+        from {
+          filter: move-rotate(0);
+        }
+        to {
+          filter: move-rotate(-1turn);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h1 class="gradient-text">Full Stack Developer</h1>
+    </section>
+  </body>
+</html>
