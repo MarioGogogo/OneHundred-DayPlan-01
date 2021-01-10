@@ -1,0 +1,34 @@
+<!--
+ * @Descripttion: 
+ * @Author: Mario
+ * @Date: 2021-01-10 21:25:25
+ * @LastEditors: Maroi
+ * @LastEditTime: 2021-01-10 21:28:51
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>使用conic-gradient描绘饼图</title>
+    <style>
+      .pie-chart {
+        width: 300px;
+        height: 300px;
+        border-radius: 100%;
+        background-image: conic-gradient(
+          #f66 0 25%,
+          #66f 25% 30%,
+          #f90 30% 55%,
+          #09f 55% 70%,
+          #3c9 70% 100%
+        );
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="pie-chart"></div>
+    </section>
+  </body>
+</html>

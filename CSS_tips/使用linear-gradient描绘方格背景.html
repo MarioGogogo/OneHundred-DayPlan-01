@@ -1,0 +1,42 @@
+<!--
+ * @Descripttion: 
+ * @Author: Mario
+ * @Date: 2021-01-10 21:29:58
+ * @LastEditors: Maroi
+ * @LastEditTime: 2021-01-10 21:35:34
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>使用linear-gradient描绘方格背景</title>
+    <style>
+      .square-bg {
+        width: 500px;
+        height: 300px;
+        background-image: linear-gradient(
+            45deg,
+            #eee 25%,
+            transparent 25%,
+            transparent 75%,
+            #eee 75%
+          ),
+          linear-gradient(
+            45deg,
+            #eee 25%,
+            transparent 25%,
+            transparent 75%,
+            #eee 75%
+          );
+        background-position: 0 0, 20px 20px;
+        background-size: 40px 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="square-bg"></div>
+    </section>
+  </body>
+</html>

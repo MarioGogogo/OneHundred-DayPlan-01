@@ -1,0 +1,33 @@
+<!--
+ * @Descripttion: 
+ * @Author: Mario
+ * @Date: 2021-01-10 21:23:19
+ * @LastEditors: Maroi
+ * @LastEditTime: 2021-01-10 21:24:48
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>使用linear-gradient描绘彩带</title>
+    <style>
+      .colour-bar {
+        width: 500px;
+        height: 50px;
+        background-image: repeating-linear-gradient(
+          90deg,
+          #f66,
+          #f66 50px,
+          #66f 50px,
+          #66f 100px
+        );
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="colour-bar"></div>
+    </section>
+  </body>
+</html>
