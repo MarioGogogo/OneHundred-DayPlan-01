@@ -1,0 +1,43 @@
+<!--
+ * @Descripttion: 
+ * @Author: Mario
+ * @Date: 2021-01-11 21:23:22
+ * @LastEditors: Maroi
+ * @LastEditTime: 2021-01-11 21:27:21
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>使用filter描绘头像彩色阴影</title>
+    <style>
+      .avatar-shadow {
+        position: relative;
+        border-radius: 100%;
+        width: 200px;
+        height: 200px;
+        background: url(https://static.yangzw.vip/codepen/thor.jpg) no-repeat
+          center/cover;
+      }
+      .avatar-shadow::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 10%;
+        z-index: -1;
+        border-radius: 100%;
+        width: 100%;
+        height: 100%;
+        background: inherit;
+        filter: blur(10px) brightness(80%) opacity(0.8);
+        transform: scale(0.95);
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="avatar-shadow"></div>
+    </section>
+  </body>
+</html>
