@@ -3,7 +3,7 @@
  * @Author: Mario
  * @Date: 2021-01-09 23:20:47
  * @LastEditors: Maroi
- * @LastEditTime: 2021-01-09 23:28:38
+ * @LastEditTime: 2021-01-15 23:16:57
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -55,6 +55,52 @@
         border-right: 50px solid transparent;
         border-top: 100px solid #66f;
       }
+      .box7 {
+        width: 0;
+        height: 0;
+        border-top: 50px solid transparent;
+        border-bottom: 50px solid transparent;
+        border-right: 100px solid #66f;
+      }
+      .box8 {
+        width: 0;
+        height: 0;
+        border-top: 50px solid transparent;
+        border-left: 100px solid #66f;
+        border-bottom: 50px solid transparent;
+      }
+      .box9 {
+        width: 0;
+        height: 0;
+        border-top: 100px solid #66f;
+        border-right: 100px solid transparent;
+      }
+      .box10 {
+        width: 0;
+        height: 0;
+        border-top: 100px solid #66f;
+        border-left: 100px solid transparent;
+      }
+      .box11 {
+        position: relative;
+        width: 0;
+        height: 0;
+        border-top: 9px solid transparent;
+        border-right: 9px solid #66f;
+        transform: rotate(10deg);
+      }
+      .box11::after {
+        content: '';
+        position: absolute;
+        border: 0 solid transparent;
+        border-top: 3px solid red;
+        border-radius: 20px 0 0 0;
+        top: -12px;
+        left: -9px;
+        width: 12px;
+        height: 12px;
+        transform: rotate(45deg);
+      }
     </style>
   </head>
   <body>
@@ -81,6 +127,26 @@
     <section>
       <h1>倒三角</h1>
       <div class="box6"></div>
+    </section>
+    <section>
+      <h1>右三角</h1>
+      <div class="box7"></div>
+    </section>
+    <section>
+      <h1>左三角</h1>
+      <div class="box8"></div>
+    </section>
+    <section>
+      <h1>左上三角</h1>
+      <div class="box9"></div>
+    </section>
+    <section>
+      <h1>右上三角</h1>
+      <div class="box10"></div>
+    </section>
+    <section>
+      <h1>小弯箭头</h1>
+      <div class="box11"></div>
     </section>
     其他慢慢更新
   </body>
