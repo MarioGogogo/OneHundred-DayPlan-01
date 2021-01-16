@@ -3,7 +3,7 @@
  * @Author: Mario
  * @Date: 2021-01-09 23:20:47
  * @LastEditors: Maroi
- * @LastEditTime: 2021-01-15 23:16:57
+ * @LastEditTime: 2021-01-16 23:04:50
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -93,13 +93,26 @@
         content: '';
         position: absolute;
         border: 0 solid transparent;
-        border-top: 3px solid red;
+        border-top: 3px solid #66f;
         border-radius: 20px 0 0 0;
         top: -12px;
         left: -9px;
         width: 12px;
         height: 12px;
         transform: rotate(45deg);
+      }
+      .box12 {
+        border-bottom: 100px solid #66f;
+        border-left: 25px solid transparent;
+        border-right: 25px solid transparent;
+        height: 0;
+        width: 100px;
+      }
+      .box13 {
+        width: 150px;
+        height: 100px;
+        transform: skew(20deg);
+        background: #66f;
       }
     </style>
   </head>
@@ -147,6 +160,14 @@
     <section>
       <h1>小弯箭头</h1>
       <div class="box11"></div>
+    </section>
+    <section>
+      <h1>梯形</h1>
+      <div class="box12"></div>
+    </section>
+    <section>
+      <h1>平行四边形</h1>
+      <div class="box13"></div>
     </section>
     其他慢慢更新
   </body>
