@@ -34,3 +34,47 @@ function TreeNode(val, left, right) {
   this.left = left === undefined ? null : left;
   this.right = right === undefined ? null : right;
 }
+
+//创建栈
+class Stack {
+  constructor() {
+    this._data = [];
+  }
+  push(e) {
+    this._data.push(e);
+  }
+  pop() {
+    return this._data.pop();
+  }
+}
+/**
+ * 迭代实现
+ * 用栈来模拟递归的过程
+ *首先根入栈
+ *将根节点出栈，将根节点值放入结果数组中
+ *然后遍历左子树、右子树，因为栈是先入后出，所以，我们先右子树入栈，然后左子树入栈
+ *继续出栈（左子树被出栈）
+ */
+const preorderTraversal_1 = function (root) {
+  const list = [];
+  const stack = new Stack();
+
+  if (root) {
+    stack.push(root);
+  }
+
+  while (stack.length > 0) {
+    // 将根节点出栈，将根节点值放入结果数组中
+    const curNode = stack.pop();
+    list.push(curNode.val);
+    // 然后遍历左子树、右子树，因为栈是先入后出，所以，我们先右子树入栈，然后左子树入栈
+    if (curNode.right !== null) {
+      stack.push(curNode.right);
+    }
+    if (curNode.left !== null) {
+      stack.push(curNode.left);
+    }
+  }
+  // 继续出栈（左子树被出栈）
+  return list;
+};
