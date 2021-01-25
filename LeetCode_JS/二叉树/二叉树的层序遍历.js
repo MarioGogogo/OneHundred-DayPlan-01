@@ -45,3 +45,5 @@ var levelOrder = function (root) {
 
   return res;
 };
+
+levelOrder(root);
