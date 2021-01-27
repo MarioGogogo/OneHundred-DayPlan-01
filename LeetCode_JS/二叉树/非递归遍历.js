@@ -3,7 +3,7 @@
  * @Author: Mario
  * @Date: 2021-01-26 22:07:44
  * @LastEditors: Maroi
- * @LastEditTime: 2021-01-26 22:30:31
+ * @LastEditTime: 2021-01-26 22:47:47
  */
 const bt = require('./bt');
 // 先序遍历
@@ -38,10 +38,11 @@ const inorder = (root) => {
       // 不断的取left
       p = p.left;
     }
-
+    //左边的值 每一个都推出栈  取一下
     const n = stack.pop();
     console.log('n.val :>> ', n.val);
-
+    //走到这步说明二叉树左边遍历完了
     p = n.right;
   }
 };
+inorder(bt);
