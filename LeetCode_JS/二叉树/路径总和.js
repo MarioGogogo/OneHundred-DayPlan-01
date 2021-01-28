@@ -7,15 +7,15 @@
 // 输出：true
 
 //深度优先遍历
-var hasPathSum = function (root, t) {
+var hasPathSum = function (root, targetSum) {
   // 边界判断
   if (!root) return false;
   let res = false;
   //深度遍历
   const dfs = (n, t) => {
     //没有叶子节点则退出
-    if (!n.left && !n.right && t === t) {
-      res = true;
+    if (!n.left && !n.right && t === targetSum) {
+      return (res = true);
     }
     //递归
     if (n.left) dfs(n.left, t + n.left.val);
