@@ -38,9 +38,60 @@ var pacificAtlantic = function (matrix) {
   //边界条件
   if (!matrix || matrix[0]) return [];
 
-  // 创建2个矩阵
+  // 创建2个二维矩阵
   const m = matrix.length;
   const n = matrix[0].length;
   const flow1 = Array.from({ length: m }, () => new Array(n).fill(false));
   const flow2 = Array.from({ length: m }, () => new Array(n).fill(false));
+
+  // 深度优先遍历
+  // 当前节点坐标
+  /**
+   *
+   * @param {大西洋 太平洋} flow
+   */
+  const dfs = (r, c, flow) => {
+    flow[r][c] = true;
+    //遍历上下左右节点
+    [
+      [r - 1, c],
+      [r + 1, c],
+      [r, c - 1],
+      [r, c + 1],
+    ].forEach(([nr, nc]) => {
+      //保证在矩阵中
+      if (
+        nr >= 0 &&
+        nr < m &&
+        nc >= 0 &&
+        nc < n &&
+        !flow[nr][nc] && //必须保证没访问过 防止死循环
+        matrix[nr][nc] >= matrix[r][c] //这个节点比上个节点大或等于
+      ) {
+        dfs(nr, nc, flow);
+      }
+    });
+  };
+
+  //沿着海岸线遍历
+  for (let r = 0; r < m; r++) {
+    dfs(r, 0, flow1); //第一列
+    dfs(r, n - 1, flow2); //最后一列
+  }
+
+  for (let c = 0; c < n; c++) {
+    dfs(0, c, flow1); //第一行
+    dfs(m - 1, c, flow2); //最后一行
+  }
+
+  //收集结果
+  let res = [];
+  for (let r = 0; r < m; r++) {
+    for (let c = 0; c < n; c++) {
+      if (flow[r][c] && flow2[r][c]) {
+        res.push([r, c]);
+      }
+    }
+  }
+  return res;
 };
