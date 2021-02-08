@@ -45,8 +45,12 @@ class MinHeap {
     this.heap[0] = this.heap.pop();
     this.shiftDown(0);
   }
+  size() {
+    return this.heap.length;
+  }
 }
-
+const heap = new MinHeap();
+module.exports = heap;
 const h = new MinHeap();
 
 h.insert(3);
