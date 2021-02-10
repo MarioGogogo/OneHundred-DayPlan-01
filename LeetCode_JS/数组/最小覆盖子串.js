@@ -42,7 +42,7 @@ var minWindow = function (s, t) {
       if (need.get(c) === 0) needType--;
     }
     while (needType === 0) {
-      // 滑动窗口宽度如果比minLen小，就更新minLen
+      //c
       if (r - l + 1 < minLen) {
         minLen = r - l + 1;
         start = l; // 更新最小窗口的起点
