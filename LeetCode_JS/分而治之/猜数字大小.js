@@ -17,7 +17,7 @@
 输入：n = 2, pick = 2
 输出：2
  */
-
+// 建议工作中 二分搜索写 while循环体  因为空间复杂度更低 性能更好
 var guessNumber = function (n) {
   const fun = (low, high) => {
     //设置边界
