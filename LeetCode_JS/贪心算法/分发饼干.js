@@ -16,23 +16,21 @@
 虽然你有两块小饼干，由于他们的尺寸都是1，你只能让胃口值是1的孩子满足。
 所以你应该输出1。
  */
-var findContentChildren = function(g, s) {
-   //先排序
-   const sortFun = (a,b)=>{
-     return a-b
-   }
-   //=======时间复杂度 n* log n  空间复杂度 O 1 =======
-    g = g.sort(sortFun)
-    s = s.sort(sortFun)
-    //=======时间复杂度 n  =======
-    let i = 0
-    s.forEach(n =>{
-      if(n >= g[i]){
-         i++
-      }
-    })
-    return i
+var findContentChildren = function (g, s) {
+  //先排序
+  const sortFun = (a, b) => {
+    return a - b;
+  };
+  //=======时间复杂度 n* log n  空间复杂度 O 1 =======
+  g = g.sort(sortFun);
+  s = s.sort(sortFun);
+  //=======时间复杂度 n  =======
+  let i = 0;
+  s.forEach((n) => {
+    //条件判断 小饼干 >= 每一个小朋友胃口值
+    if (n >= g[i]) {
+      i++;
+    }
+  });
+  return i;
 };
-
-
-
