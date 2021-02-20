@@ -20,6 +20,7 @@ const intervals = [
 ];
 var intervalsSchedule = function (intervals) {
   if (intervals.length === 0) return 0;
+  //区间排序
   intervals.sort((a, b) => {
     return a[1] - b[1];
   });
