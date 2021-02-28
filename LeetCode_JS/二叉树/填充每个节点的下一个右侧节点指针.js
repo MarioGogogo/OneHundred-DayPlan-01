@@ -28,7 +28,6 @@
 var connect = function(root) {
     if(!root) return root
     const q = [root]
-    const res = []
     while (q.length > 0) {
        const size = q.length
         for (let i = 0; i < size; i++) {
