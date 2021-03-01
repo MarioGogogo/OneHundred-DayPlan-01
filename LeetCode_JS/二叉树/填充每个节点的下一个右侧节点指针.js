@@ -24,21 +24,53 @@
 
  */
 
-
-var connect = function(root) {
-    if(!root) return root
-    const q = [root]
-    while (q.length > 0) {
-       const size = q.length
-        for (let i = 0; i < size; i++) {
-          //如果找不到下一个右侧节点，则将 next 指针设置为 NULL。当i==size-1时，
-          //相当于到了这一层的最后一个节点，该层已经没有下一个右侧节点所以需要保持为NULL。
-            if(i < size-1){
-                node.next = q[0]
-            }
-            if(n.left) q.push(n.left)
-            if(n.right) q.push(n.right)
-        }
-    }
-    return root
+const root = {
+  val: 1,
+  left: {
+    val: 2,
+    left: {
+      val: 4,
+      left: null,
+      right: null,
+    },
+    right: {
+      val: 5,
+      left: null,
+      right: null,
+    },
+  },
+  right: {
+    val: 3,
+    left: {
+      val: 6,
+      left: null,
+      right: null,
+    },
+    right: {
+      val: 7,
+      left: null,
+      right: null,
+    },
+  },
 };
+
+var connect = function (root) {
+  if (!root) return root;
+  const q = [root];
+  while (q.length > 0) {
+    const size = q.length;
+    for (let i = 0; i < size; i++) {
+      //如果找不到下一个右侧节点，则将 next 指针设置为 NULL。当i==size-1时，
+      const n = q.shift();
+      //相当于到了这一层的最后一个节点，该层已经没有下一个右侧节点所以需要保持为NULL。
+      if (i < size - 1) {
+        n.next = q[0]; // [5] ---> [6][7]
+      }
+      if (n.left) q.push(n.left);
+      if (n.right) q.push(n.right);
+    }
+  }
+  return root;
+};
+
+connect(root)

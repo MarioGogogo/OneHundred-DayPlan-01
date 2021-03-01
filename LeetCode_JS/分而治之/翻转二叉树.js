@@ -20,7 +20,7 @@
  */
 //递归
 var invertTree = function (root) {
-  if (!root) return null;
+  if (!root) return root;
   //递归
   return {
     val: root.val,
@@ -37,8 +37,8 @@ var invertTree = function (root) {
   let res = [root];
   while (res.length) {
     const p = [];
-
-    for (let i = 0; i < res.length; i++) {
+    let len = res.length;
+    for (let i = 0; i < len; i++) {
       //如果没有叶子节点则退出
       if (!res[i].left && !res[i].right) return;
       //交换位置
