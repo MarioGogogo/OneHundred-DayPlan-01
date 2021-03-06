@@ -27,6 +27,10 @@ var permute = function(nums) {
           backtrack(path.concat(n))
         });
      }
+
+     //递归  初始为空
      backtrack([])
      return res
 };
+
+permute(nums)

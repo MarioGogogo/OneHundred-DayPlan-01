@@ -33,3 +33,21 @@ var sumOfLeftLeaves = function (root) {
 
   return sum;
 };
+
+//迭代
+var sumOfLeftLeaves = function (root) {
+  if (!root) return 0;
+  let q = [root];
+  let res = 0; //结果
+  while (q.length > 0) {
+    let n = q.shift();
+    //判断左叶子
+    if (!n.left && n.left.left === null && n.left.right === null) {
+      res += n.left.val;
+    }
+    if (n.left) q.push(n.left);
+    if (n.right) q.push(n.right);
+  }
+
+  return res
+};
