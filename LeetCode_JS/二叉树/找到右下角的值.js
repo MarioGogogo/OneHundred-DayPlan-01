@@ -25,6 +25,8 @@
 
 1.找到最后一行  然后找到最左边的值
  */
+
+//递归
 let maxLeftValue = 0, maxLen = 0;
 var findBottomLeftValue = function (root) {
   traveral(root, 0);
@@ -44,12 +46,12 @@ function traveral(root, leftLen) {
   if (root.left) {
     leftLen++;
     traveral(root.left, leftLen);
-    leftLen--;
+    leftLen--; //回溯
   }
   if (root.right) {
     leftLen++;
     traveral(root.right, leftLen);
-    leftLen--;
+    leftLen--;//回溯
   }
   return;
 }

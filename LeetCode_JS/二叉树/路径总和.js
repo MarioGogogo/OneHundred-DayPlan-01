@@ -26,3 +26,18 @@ var hasPathSum = function (root, targetSum) {
 
   return res;
 };
+
+//迭代
+var hasPathSum = function (root, targetSum) {
+  if (!root) return false;
+  const stack = [[root, root.val]];
+  while (stack.length > 0) {
+    const [n, pathSum] = stack.shift();
+    //如果没有子节点 值又相等则返回true
+    if (pathSum === targetSum && !n.left && !n.right) return true;
+    // 前序遍历，需要先将右节点入栈，这样出栈时为左节点先出栈
+    if (n.right) stack.push([n.right, pathSum + n.right.val]);
+    if (n.left) stack.push([n.left, pathSum + n.left.val]);
+  }
+  return false
+};
