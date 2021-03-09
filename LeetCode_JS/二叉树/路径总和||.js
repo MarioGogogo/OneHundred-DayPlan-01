@@ -6,18 +6,19 @@
 输出：[[5,4,11,2],[5,8,4,5]]
 
  */
-var pathSum = function (root, targetSum) {
-  let result = [];
+var pathSum = function (root, sum) {
+  let res = []; //初始化结果
   if (!root) return [];
 
-  const path = [root.val]; //记录路径
-
+  const path = [root.val]; //初始化记录路径
+  //递归  传入root  和 目标分数 - 当前root分数
   traversal(root, sum - root.val);
 
   return res;
 };
 
 function traversal(cur, count) {
+  //当count 为0 表示已经找到了 目标数路径 要把路径值加入数组
   if (!cur.left && !cur.right && count === 0) return result.push(path);
 
   if (!cur.left && !cur.right) return;
@@ -25,7 +26,7 @@ function traversal(cur, count) {
     path.push(cur.left.val);
     count -= cur.left.val;
     traversal(cur.left, count);
-    count += cur.left.val;
+    count += cur.left.val; //原路返回
     path.pop(); //回溯
   }
   if (cur.right) {
