@@ -45,7 +45,6 @@ var buildTree = function (inorder, postorder) {
   post_idx = postorder.length - 1;
 
   //中序遍历中设置字典键值对
-  let idx = 0;
   inorder.forEach((val, idx) => {
     idx_map.set(val, idx);
   });
