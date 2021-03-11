@@ -27,13 +27,13 @@ var buildTree = function (preorder, inorder) {
   let build = (inorder) => {
     //边界条件
     if (!inorder || !inorder.length) return null;
-    //根元素
+    //根元素 就是 前序遍历的 首元素
     let root_val = preorder.shift(),
       //找到根元素下标
       mid = inorder.indexOf(root_val);
     //创建树
     let root = new TreeNode(root_val);
-    //创建左子树
+    //创建左子树  [[9],[15,20,7]]
     root.left = build(inorder.slice(0, mid));
     //创建右子树
     root.right = build(inorder.slice(mid + 1));
