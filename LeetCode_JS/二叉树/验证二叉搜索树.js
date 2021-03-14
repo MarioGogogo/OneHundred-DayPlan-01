@@ -24,18 +24,39 @@
  */
 
 //递归
-let pre = null //用于记录前一个节点
-var isValidBST = function(root) {
-  if(root == null) return true;
-   
-  const left = isValidBST(root.left)
-  
+let pre = null; //用于记录前一个节点
+var isValidBST = function (root) {
+  if (root == null) return true;
+
+  const left = isValidBST(root.left);
+
   //这一步很重要
-  if(pre != null && pre.val >= root.val) return false
-  pre = root  //记录前一个节点
+  if (pre != null && pre.val >= root.val) return false;
+  pre = root; //记录前一个节点
 
-  const right = isValidBST(root.right)
+  const right = isValidBST(root.right);
 
-  return left && right
+  return left && right;
+};
 
+//迭代
+var isValidBST = function (root) {
+  let str = [];
+  let cur = root;
+  let pre = null; //记录前一个
+
+  while (cur != null || st.length > 0) {
+    if (cur != null) {
+      st.push(cur);
+      cur = cur.left;
+    } else {
+      cur = st.shift();
+      if (pre != null && cur.val <= pre.val) {
+        return false;
+      }
+      pre = cur;
+      cur = cur.right;
+    }
+    return true;
+  }
 };
