@@ -12,10 +12,6 @@
     1   3
 
 和值: 2
-
-
-
-
  */
 var searchBST = function(root, val) {
 
@@ -23,8 +19,21 @@ var searchBST = function(root, val) {
 
   if(root.val > val) return searchBST(root.left,val)
   if(root.val < val) return searchBST(root.right,val)
-
-
   return null
-
 };
+
+//迭代
+// 对于二叉搜索树 因为节点有序 就不需要回溯
+var searchBST = function(root, val) {
+   while(root !== null){
+     if(root.val > val){
+      root = root.left
+     }else if(root.val < val){
+        root = root.right
+     }else {
+       return root
+     }
+   }
+   return null
+
+}
