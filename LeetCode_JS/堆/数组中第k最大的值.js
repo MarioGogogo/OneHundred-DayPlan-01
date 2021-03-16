@@ -10,7 +10,6 @@ const nums = [3, 2, 1, 5, 6, 4],
   k = 2;
 const findKthLargest = function (nums, k) {
   //构建一个最小堆
-  const minHeap;
   nums.forEach((n) => {
     minHeap.insert(n);
     //  当堆容量超过k，就删除堆顶
