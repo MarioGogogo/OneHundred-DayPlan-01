@@ -20,19 +20,18 @@
  */
 
 
-
-
-
-var hasCycle = function(head) {
-  let p1 = head;
-  let p2 = head;
+// 思路：设置快慢指针  如果快慢指针重合了说明有环
+function hasCycle (head) {
+  let p1 = head; // 慢
+  let p2 = head;  //快
 
   while (p1 && p2 && p2.next) {
-     p1 = p1.next
-     p2 = p2.next.next
-     if(p1 === p2) return true
+    p1 = p1.next;
+    p2 = p2.next.next;
+    if (p1 === p2)
+      return true;
   }
-  return false
+  return false;
 
-    
-};
+
+}
