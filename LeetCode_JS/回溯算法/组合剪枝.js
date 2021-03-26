@@ -30,7 +30,7 @@ function combine(n, k) {
     // 1. 已经选择的元素个数:path.size();
     // 2. 还需要的元素个数为: k - path.size();
     // 3. 在集合n中至多要从该起始位置 : n - (k - path.size()) + 1，开始遍历 （包括起始位置
-    for (let i = startIndex; i <= (k - path.length) + 1; i++) {
+    for (let i = startIndex; i <= n - (k - path.length) + 1; i++) {
       path.push(i);
       //控制树的纵向遍历，注意下一层搜索要从i+1开始
       backtracking(n, k, i + 1);
