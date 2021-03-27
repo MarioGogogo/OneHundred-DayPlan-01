@@ -33,7 +33,39 @@ var combinationSum3 = function (k, n) {
       sum += i;
       path.push(i);
       backtracking(targtSum, k, sum, i + 1);
-      sum -= i;  // 回溯 [2,4] 
+      sum -= i; // 回溯 [2,4]
+      path.pop(); //回溯
+    }
+  }
+};
+
+//优化剪枝
+var combinationSum3 = function (k, n) {
+  let result = []; //结果
+  let path = []; //路径
+  let startIndex = 1; //起始搜索位置
+  let targtSum = n;
+  let sum = 0;
+  //递归
+  backtracking(targtSum, k, sum, startIndex);
+  return result;
+
+  function backtracking(targtSum, k, sum, startIndex) {
+    // 如果sum大于targetSum 就没有意义了
+    if(sum > targtSum) return 
+    //如果长度相同 必须 相加相等n 否则返回
+    if (path.length === k) {
+      if (sum === targtSum) {
+        result.push([...path]);
+      }
+      return;
+    }
+    //优化遍历的长度  我们不需要一直遍历到最后
+    for (let i = startIndex; i <= 9 -(k-path.length)+1; i++) {
+      sum += i;
+      path.push(i);
+      backtracking(targtSum, k, sum, i + 1);
+      sum -= i; // 回溯 [2,4]
       path.pop(); //回溯
     }
   }
