@@ -25,11 +25,11 @@ const letterCombinations = (digits) => {
     'pqrs',
     'tuv',
     'wxyz',
-  ];
+  ]; 
   //  设置结果集
   let result = [];
   const recursion = (letter, index) => {
-    // 3.1 如果单个字符串到底了，那就添加它
+    // 如果单个字符串到底了，那就添加它
     if (index === digits.length) {
       result.push(letter);
       return;
