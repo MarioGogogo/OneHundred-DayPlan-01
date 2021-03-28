@@ -11,40 +11,40 @@
 输出：["a","b","c"]
  */
 
-var letterCombinations = function (digits) {
-  let letterMap = [
-    '', // 0
-    '', // 1
-    'abc', // 2
-    'def', // 3
-    'ghi', // 4
-    'jkl', // 5
-    'mno', // 6
-    'pqrs', // 7
-    'tuv', // 8
-    'wxyz', // 9
+const letterCombinations = (digits) => {
+  if (!digits.length) return [];
+  // 设置哈希映射
+  const hash = [
+    '',
+    '',
+    'abc',
+    'def',
+    'ghi',
+    'jkl',
+    'mno',
+    'pqrs',
+    'tuv',
+    'wxyz',
   ];
+  //  设置结果集
   let result = [];
-
-  if (digits.length === 0) return result;
-  let s = [];
-  function backtracking(digits, index) {
+  const recursion = (letter, index) => {
+    // 3.1 如果单个字符串到底了，那就添加它
     if (index === digits.length) {
-      return result.push(s);
+      result.push(letter);
+      return;
     }
-    //找到对应数字集合
-    digits = digits[index] - '0';
 
-    let letters = letterMap[digit];
-
-    for (let i = 0; i < letters.length; i++) {
-      s.push(letters[i]);
-      backtracking(digits, index + 1);
-      s.pop(); //回溯
+    //获取当前数字对应的字母集合
+    const nowStr = hash[Number(digits[index])];
+    // 遍历这串字母，将其添加到下一次遍历中，同时位置向后挪一
+    for (let i = 0; i < nowStr.length; i++) {
+      recursion(letter + nowStr[i], index + 1);
     }
-  }
+  };
   //递归
-  backtracking(digits, 0);
-
+  recursion('', 0);
   return result;
 };
+
+console.log(letterCombinations('23')); // 返回数组长度：11664
