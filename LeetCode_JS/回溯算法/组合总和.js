@@ -26,13 +26,13 @@ var combinationSum = function (candidates, target) {
   let path = [];
 
   function backtracking(candidates, target, sum, startIndex) {
-    //如果 sum 大于target则退出
+    //终止条件 如果 sum 大于target则退出
     if (sum > target) return;
     if (sum === target) {
       result.push([...path]);
       return;
     }
-    //循环遍历
+    //单层循环遍历
     for (let i = startIndex; i < candidates.length; i++) {
       sum += candidates[i];
       path.push(candidates[i]);
