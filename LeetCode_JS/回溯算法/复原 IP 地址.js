@@ -6,54 +6,37 @@
 有效 IP 地址 正好由四个整数（每个整数位于 0 到 255 之间组成，且不能含有前导 0），
 整数之间用 '.' 分隔。
 
-例如："0.1.2.201" 和 "192.168.1.1" 是 有效 IP 地址，但是 "0.011.255.245"、"192.168.1.312" 和 "192.168@1.1" 是 无效 IP 地址。
-
- * @param {*} s 
+例如："0.1.2.201" 和 "192.168.1.1" 是 有效 IP 地址，
+但是 "0.011.255.245"、"192.168.1.312" 和 "192.168@1.1" 是 无效 IP 地址。
+输入：s = "25525511135"
+输出：["255.255.11.135","255.255.111.35"]
  */
 
+//ip地址 [[0...255].[0...255].[0...255].[0...255]]
 var restoreIpAddresses = function (s) {
   let result = [];
+  //大于12 超过最大有效ip总长度
   if (s.length > 12) return result;
-
-  function backtracking(s, startIndex, pointNum) {
-    //终止条件
-    if (pointNum === 3) {
-      if (isValid(s, startIndex, s.length - 1)) {
-        result.push(path);
-      }
+  // pointNum，记录添加逗点的数量
+  function backtracking(s, startIndex) {
+    if (s.length == 4 && startIndex === s.length) {
+      result.push(s.join('.'));
       return;
     }
+    if (s.length === 4 && startIndex < s.length) return;
 
-    for (let i = startIndex; i < s.length; i++) {
-      //判断是否ip合法
-      if (isValid(s, startIndex, i)) {
-        s.insert(s[0 + i + 1], '.'); //在i的后面插入一个逗点
-        pointNum++;
-        backtracking(s, i + 2, pointNum); // 插入逗点之后下一个子串的起始位置为i+2
-        pointNum--; // 回溯
-        s.erase(s[0] + i + 1); //回溯删掉逗点
-      }
-      break; //不合法直接结束本次循环
-    }
-    //判断ip是否合法
-    function isValid(s, start, end) {
-      if (start > end) return false;
-      if (s[start] === '0' && start !== end) return false;
-
-      let num = 0;
-      for (let i = start; i < end; i++) {
-        if (s[i] > '9' || s[i] < '0') {
-          return false;
-        }
-        num = num * 10 + (s[i] - '0');
-        //ip不能大于255
-        if (num > 255) return false;
-        return true;
-      }
+    for (let i = 1; i <= 3; i++) {
+       if(startIndex + i -1 >= s.length) return
+       if(i !== 1 && s[startIndex] === '0') return
+       const str = s.substring(start,start + len)
+       if(len === 3 && +str > 255) return
+       s.push(str)
+       backtracking(s,startIndex+i)
+       s.pop() //回溯
     }
   }
 
-  backtracking(s, 0, 0);
+  backtracking([], 0);
 
   return result;
 };
