@@ -14,7 +14,7 @@
  */
 
 var partition = function (s) {
-  let result = [];
+  let result = []; 
   let path = [];
   function backtracking(s, starIndex) {
     if (starIndex >= s.length) {
@@ -23,6 +23,7 @@ var partition = function (s) {
     }
 
     for (let i = starIndex; i < s.length; i++) {
+      //判断回文
       if (isPalidrome(s, starIndex, i)) {
         let str = s.substr(starIndex, i - starIndex + 1);
         path.push(str);
@@ -43,3 +44,4 @@ var partition = function (s) {
   backtracking(s, 0);
   return result;
 };
+
