@@ -26,13 +26,13 @@ var restoreIpAddresses = function (s) {
     if (s.length === 4 && startIndex < s.length) return;
 
     for (let i = 1; i <= 3; i++) {
-       if(startIndex + i -1 >= s.length) return
-       if(i !== 1 && s[startIndex] === '0') return
-       const str = s.substring(start,start + len)
-       if(len === 3 && +str > 255) return
-       s.push(str)
-       backtracking(s,startIndex+i)
-       s.pop() //回溯
+      if (startIndex + i - 1 >= s.length) return;
+      if (i !== 1 && s[startIndex] === '0') return;
+      const str = s.substring(start, start + len);
+      if (len === 3 && +str > 255) return;
+      s.push(str);
+      backtracking(s, startIndex + i);
+      s.pop(); //回溯
     }
   }
 
