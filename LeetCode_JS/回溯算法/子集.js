@@ -30,3 +30,5 @@ var subsets = function (nums) {
   backtracking(nums, 0);
   return result;
 };
+
+console.log('object :>> ', subsets([1,2,3]));
