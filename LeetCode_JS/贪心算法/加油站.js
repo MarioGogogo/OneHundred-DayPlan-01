@@ -29,6 +29,8 @@ var canCompleteCircuit = function (gas, cost) {
     totalSum = 0,
     start = 0;
   for (let i = 0; i < gas.length; i++) {
+    // curSum变量表示车辆在前i个加油站能够跑起来；totalSum表示全程预计算后油量和油耗差值
+    // 只有totalSum大等于0，汽车才能跑完全程
     curSum += gas[i] - cost[i];
     totalSum += gas[i] - cost[i];
     if (curSum < 0) {
@@ -36,6 +38,8 @@ var canCompleteCircuit = function (gas, cost) {
       curSum = 0;
     }
   }
+  // 说明车辆无法跑到第i+1加油站，因此需要重置车辆初始加油站索引
+  // 并重新开始
   if (totalSum < 0) return -1;
   return start;
 };
