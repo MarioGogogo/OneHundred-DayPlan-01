@@ -4,7 +4,8 @@
  */
 //方法一
 function stringToInt(str){
-   const result = str.trim().math(/^(-|\+)?\d+/g)
+   const result = str.trim().match(/^(-|\+)?\d+/g)
+   if(result == null) return 0
    const min = Math.min(Number(result[0]),Math.pow(2,31)-1)
    const max = Math.max(min, -Math.pow(2,31))
    return result ?  max : 0
@@ -28,3 +29,5 @@ function returnNum(num){
       num > 0 ? Math.pow(2, 31) - 1 : -Math.pow(2, 31)
    }
 }
+
+console.log('object :>> ', stringToInt2(' 4193 with words'));
